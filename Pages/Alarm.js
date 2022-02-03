@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 32,
+    fontSize: 28,
     color: 'white',
     textAlign: 'center'
   },
@@ -127,10 +127,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C314F',
     marginTop: 10,
     paddingHorizontal: 15,
-    paddingVertical: 10,
+    paddingVertical: 8,
     width: '100%',
-    paddingVertical: 10,
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
     borderRadius: 8
   },
