@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, Switch, Alert, Vibration } from 'react-native';
 
-export default function Alarm() {
+export default function SetAlarm() {
   const dataAlarm = [
     { 
       time: '04:00',
