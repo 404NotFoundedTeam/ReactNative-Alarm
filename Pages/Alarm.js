@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Button, TouchableOpacity, Switch, Alert, Vibrat
 export default function Alarm() {
   const [time, setTime] = useState(new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString());
 
-  myPress = () => {
+  const myPress = () => {
     Vibration.vibrate();
     setTime(new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString());
   };
@@ -22,12 +22,12 @@ export default function Alarm() {
         active: true
       },
       {
-        time: '04:00',
+        time: '06:00',
         activeDays: [1, 2, 3],
         active: true
       },
       {
-        time: '05:00',
+        time: '07:00',
         activeDays: [3],
         active: true
       },
@@ -62,7 +62,7 @@ export default function Alarm() {
                 <Text style={styles.small}>
                   {days.map((day, i) => {
                     return (
-                      <View style={{ paddingRight: 5 }}><Text style={item.activeDays.includes(i) ? styles.gold : { color: 'gray' }}>{day}</Text></View>
+                      <View style={{ paddingRight: 5 }} key={`${day}${i}`}><Text style={item.activeDays.includes(i) ? styles.gold : { color: 'gray' }}>{day}</Text></View>
                     )
                   })}
                 </Text>
