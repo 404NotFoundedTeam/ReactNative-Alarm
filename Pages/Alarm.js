@@ -47,10 +47,10 @@ export default function Alarm() {
       <Text style={styles.title}>6 hours 45 minutes</Text>
       <Text style={styles.gold}>{time}</Text>
       <TouchableOpacity
-        style={styles.loginScreenButton}
+        style={styles.plusButton}
         onPress={() => myPress('HomeScreen')}
         underlayColor='#fff'>
-        <Text style={styles.loginText}>+</Text>
+        <Text style={styles.plusText}>+</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
       {
@@ -75,9 +75,6 @@ export default function Alarm() {
                 value={item.active}
                 trackColor={{true: "gray", false: "gray" }}
                 thumbColor={item.active ? "gold" : "gray"}
-                style={{
-                  marginLeft: 10,
-                }}
               />
               </View>
             </View>
@@ -91,10 +88,8 @@ export default function Alarm() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 30,
-    display: 'flex',
+    padding: 25,
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     backgroundColor: '#191F37',
   },
@@ -114,14 +109,14 @@ const styles = StyleSheet.create({
   gold: {
     color: 'gold',
   },
-  loginScreenButton: {
+  plusButton: {
     marginTop: 10,
     paddingTop: 10,
     paddingBottom: 10,
     backgroundColor: 'transparent',
     alignSelf: 'flex-end',
   },
-  loginText: {
+  plusText: {
     color: 'gold',
     textAlign: 'right',
     paddingLeft: 10,
@@ -135,15 +130,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     width: '100%',
     paddingVertical: 10,
-    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderRadius: 8
-  },
-  weekDays: {
-    flexDirection: 'row',
-    borderColor: 'white',
-    borderWidth: 2,
-    paddingHorizontal: 10,
   },
 });

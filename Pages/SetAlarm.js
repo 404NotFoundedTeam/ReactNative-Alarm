@@ -18,10 +18,7 @@ export default function Alarm() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 30,
-    display: 'flex',
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     backgroundColor: '#191F37',
   },
