@@ -4722,8 +4722,7 @@
 "react-native-router-flux@^4.3.1":
   "integrity" "sha512-WeNgkHvRGIUz/AlfdSiTAjctgbIzC9oyPJ4yvGKxuM0qohltDjdB4a02vlNSjve7NS+5aSQMEWZAfINgnZGg+w=="
   "resolved" "https://registry.npmjs.org/react-native-router-flux/-/react-native-router-flux-4.3.1.tgz"
-  "version" "4.3.1"
-  dependencies:
+  "version" "4.3.1"  dependencies:
     "@babel/runtime" "^7.6.0"
     "add" "^2.0.6"
     "lodash" "^4.17.15"

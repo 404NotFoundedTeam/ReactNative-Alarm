@@ -1,14 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity, Switch, Alert, Vibration } from 'react-native';
+import {PlayAudio, PlayVibrate} from '../components/audios/Sound'
+import Sound from 'react-native-sound';
+
+
 
 export default function Alarm() {
-  const [time, setTime] = useState(new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString());
+  const [time, setTime] = useState(new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString());  
 
-  const myPress = () => {
-    Vibration.vibrate();
-    setTime(new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString());
-  };
   const [alarmsData, setAlarmsData] = useState(
     [
       { 
@@ -32,7 +32,17 @@ export default function Alarm() {
         active: true
       },
     ]
-  )
+    )
+
+  useEffect(() => {
+    setInterval(() => {
+      setTime(new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString());
+    }, 1000)
+  }, []);
+  
+  myPress = () => {
+    Vibration.vibrate();
+  };
 
   const changeActicve = (index) => {
       const data = [...alarmsData]
@@ -56,19 +66,18 @@ export default function Alarm() {
       {
         alarmsData.map((item, index) => {
           return (
-            <View style={styles.alarmBox} key={item.time}>
+            <View style={styles.alarmBox} key={item.time + index}>
               <Text style={styles.title}>{item.time}</Text>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Text style={styles.small}>
                   {days.map((day, i) => {
                     return (
+
                       <View style={{ paddingRight: 5 }} key={`${day}${i}`}><Text style={item.activeDays.includes(i) ? styles.gold : { color: 'gray' }}>{day}</Text></View>
                     )
                   })}
                 </Text>
-                <Switch
-                // onValueChange={props.toggleSwitch1}
-                
+                <Switch               
                 onValueChange={() => {
                   changeActicve(index)
                 }}
