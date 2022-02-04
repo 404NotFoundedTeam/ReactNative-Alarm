@@ -7,8 +7,8 @@ import Sound from 'react-native-sound';
 
 
 export default function Alarm() {
-  const [time, setTime] = useState(new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString());
-  
+  const [time, setTime] = useState(new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString());  
+
   const [alarmsData, setAlarmsData] = useState(
     [
       { 
@@ -22,12 +22,12 @@ export default function Alarm() {
         active: true
       },
       {
-        time: '04:00',
+        time: '06:00',
         activeDays: [1, 2, 3],
         active: true
       },
       {
-        time: '05:00',
+        time: '07:00',
         activeDays: [3],
         active: true
       },
@@ -57,10 +57,10 @@ export default function Alarm() {
       <Text style={styles.title}>6 hours 45 minutes</Text>
       <Text style={styles.gold}>{time}</Text>
       <TouchableOpacity
-        style={styles.loginScreenButton}
+        style={styles.plusButton}
         onPress={() => myPress('HomeScreen')}
         underlayColor='#fff'>
-        <Text style={styles.loginText}>+</Text>
+        <Text style={styles.plusText}>+</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
       {
@@ -72,7 +72,8 @@ export default function Alarm() {
                 <Text style={styles.small}>
                   {days.map((day, i) => {
                     return (
-                      <View key={day + i} style={{ paddingRight: 5 }}><Text style={item.activeDays.includes(i) ? styles.gold : { color: 'gray' }}>{day}</Text></View>
+
+                      <View style={{ paddingRight: 5 }} key={`${day}${i}`}><Text style={item.activeDays.includes(i) ? styles.gold : { color: 'gray' }}>{day}</Text></View>
                     )
                   })}
                 </Text>
@@ -83,9 +84,6 @@ export default function Alarm() {
                 value={item.active}
                 trackColor={{true: "gray", false: "gray" }}
                 thumbColor={item.active ? "gold" : "gray"}
-                style={{
-                  marginLeft: 10,
-                }}
               />
               </View>
             </View>
@@ -99,16 +97,14 @@ export default function Alarm() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 30,
-    display: 'flex',
+    padding: 25,
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     backgroundColor: '#191F37',
   },
 
   title: {
-    fontSize: 32,
+    fontSize: 28,
     color: 'white',
     textAlign: 'center'
   },
@@ -122,14 +118,14 @@ const styles = StyleSheet.create({
   gold: {
     color: 'gold',
   },
-  loginScreenButton: {
+  plusButton: {
     marginTop: 10,
     paddingTop: 10,
     paddingBottom: 10,
     backgroundColor: 'transparent',
     alignSelf: 'flex-end',
   },
-  loginText: {
+  plusText: {
     color: 'gold',
     textAlign: 'right',
     paddingLeft: 10,
@@ -140,18 +136,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C314F',
     marginTop: 10,
     paddingHorizontal: 15,
-    paddingVertical: 10,
+    paddingVertical: 8,
     width: '100%',
-    paddingVertical: 10,
-    display: 'flex',
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
     borderRadius: 8
-  },
-  weekDays: {
-    flexDirection: 'row',
-    borderColor: 'white',
-    borderWidth: 2,
-    paddingHorizontal: 10,
   },
 });
